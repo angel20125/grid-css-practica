@@ -1,0 +1,28 @@
+
+/*
+    gris oscuro=#1df252c;
+    gris oscuro-claro=#626262;
+    gris claro=#fafafa;
+    background gris=#1b2127;
+    celeste=#026fff;
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {    
+    display: grid;
+    background-color: #1b2127;
+    grid-template-columns: auto auto auto auto;/*se pueden mezclar las unidades
+     exiten dos tipos de valores que pueden tomar  esta propiedad los explicitos y implicitos*/
+}
+
+.items {
+    padding: 5px;
+    margin: 5px;
+    border: 1px  solid #1b2127 ;
+    color: white;
+    background-color:#026fff;
+
+
+}
