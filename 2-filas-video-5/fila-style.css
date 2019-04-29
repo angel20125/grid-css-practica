@@ -1,0 +1,39 @@
+
+/*
+    gris oscuro=#1df252c;
+    gris oscuro-claro=#626262;
+    gris claro=#fafafa;
+    background gris=#1b2127;
+    celeste=#026fff;
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    grid-template-columns: auto auto auto auto;/*Definiendo columnas*/
+    grid-template-rows: 100px 100px 100px;/*Definiendo filas*/
+    /*Para definir filas y columnas sería grid template: filas/columnas*/
+    grid-template: 100px 100px 100px/auto auto auto auto; /*Defineindo filas/columnas,sobre escribe las anteriores.lineas*/  
+    display: grid; /*Display necesario para usar el grid*/ 
+    background-color: #1b2127; /*Backgroud para identificar el contanier*/
+
+    /* NOTAS
+        *- Las propiedades del display grid soló  afecta a lso hijos a los hijos directamente.
+        *- Las unidades (%,px,auto,rem) se pueden mezclar en los parámetros.
+        *- Existen dos tipos de  de valors grid: a-grid explicito, b-grid implicito.
+        *- Para controlar el 
+        *- Otra forma de  declarar filas y columnas es usando la propiedad  grid template: filas/Columnas.
+
+    */
+}
+
+.items {
+    padding: 5px;
+    margin: 5px;
+    border: 1px  solid #1b2127 ;
+    color: white;
+    background-color:#026fff;
+
+
+}
