@@ -1,0 +1,122 @@
+
+/*
+    gris oscuro=#1df252c;
+    gris oscuro-claro=#626262;
+    gris claro=#fafafa;
+    background gris=#1b2127;
+    celeste=#026fff;
+*/
+h1{
+
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: grid; /*Display necesario para usar el grid*/ 
+    background-color: #1b2127; /*Backgroud para identificar el contanier*/
+    grid-template-columns: auto auto auto auto;/*Definiendo columnas*/
+    grid-template-rows: 100px 100px 100px/*Definiendo filas*/
+
+    /* grid-template: 100px/100px;*//*Definiendo filas/columnas, 
+    sobre-escribe las anteriores propiedades. 
+    todas las filas sumen un valor de grid explícito*/
+    
+    /* NOTAS
+
+        *- Las propiedades del display grid sólo  
+            afecta a los hijos  hijos directo del 
+            Grid.
+
+        *- Las unidades (%,px,auto,rem) se pueden 
+            mezclar en los parámetros de las pro-
+            piedades grid-template-columns, 
+            grid-template-rows.
+
+        *- Existen dos tipos de  de valores grid: 
+            a) grid explícito, b) grid implícito.
+
+        *- Otra forma de  declarar filas y columnas 
+            es usando la propiedad  
+            grid-template: filas/Columnas.
+    */
+}
+
+.item {
+    padding: 5px;
+    margin: 5px;
+    border: 1px  solid #1b2127 ;
+    color: white;
+    background-color:#026fff;
+    
+    
+}
+/* NOTAS grid identados
+
+       Se puede escoger un item  o elemento hijo del
+   padre que tiene display:grid y hacer sub-grid 
+   en ese elementos. Para ello Se puede usar como opción
+   la propiedad nth-of-type(n) dónde n es el
+   número del elemento que deseamos seleccionar.
+   y allí aplicamos las propiedades necesarias.
+   la otra forma es  haciendo un selector de clase
+   para ese componente html.
+
+
+   en ambos caso las dos formas son la siguiente:
+   de elemento que deseamos seleccionar una de la 
+   siguiente formas es :
+  
+   *- 1#. la forma  es aplicar un tipo de
+       display:subgrid (aún no disponible),
+       esto lo que hará es heredar las pro-
+       piedades del padre.
+
+   *- #2. Otras de las formas es aplicando un
+       display:grid  y  luego  utilizamos las
+       propiedades  necesarias para definir filas
+       y columnas  como lo son: 
+       grid-template-columns,
+       grid-template-rows, 
+       grid-template, 
+       entre otros
+
+    
+   *- #3. tipos de display:
+           #3.1 display:inline-grid, ordena en filas.
+           #3.2 display:sobregrip, hereda las propie-
+                dades del padre. Aún no disponible.
+
+*/
+
+/* #1  Subgrid */
+.item:nth-of-type(11) {/*Esta propiedad escoje  
+    todos los subtiem numero 11, que esten contenidos en la clase item*/
+
+    background-color: cornflowerblue;/*background color*/
+    overflow: auto;                    /*activa el scroll*/
+    /*Luego se aplica un display:subgrip para que este elemento
+    herede las propiedades del padre grid*/
+    
+ 
+}
+/* #2  Subgrid */ /*Forma correcta y disponible*/
+.item:nth-of-type(12){
+    background-color: cornflowerblue;
+    overflow: auto; /*se define el scroll*/
+    display: grid; /*Display grid*/
+    grid-template-columns: auto auto;/*Definiendo columnas*/
+    grid-template-rows:auto; /*Definiendo filas*/
+}
+
+.subitem.forma-1{
+    background-color: #febf46;
+    border: 1px  solid #1b2127 ;
+
+}
+.subitem.forma-2{
+    background-color:#671535;
+    border: 1px  solid #1b2127 ;
+
+}

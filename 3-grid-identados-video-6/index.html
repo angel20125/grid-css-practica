@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="grid-identados-style.css">
+    <title>grid identados y display</title>
+</head>
+
+<body>
+<H1> <strong> Grids identados y tipos de displays </strong> </H1>
+    <section class="container">
+        <div class="item">contenido #1</div>
+        <div class="item">contenido #2</div>
+        <div class="item">contenido #3</div>
+        <div class="item">contenido #4</div>
+        <div class="item">contenido #5</div>
+        <div class="item">contenido #6</div>
+        <div class="item">contenido #7</div>
+        <div class="item">contenido #8</div>
+        <div class="item">contenido #9</div>
+        <div class="item">contenido #10</div>
+        
+        
+        <div class="item"> 
+            <!--contenido #11
+                *- 1# la primera forma para hacer un sub-grid se 
+                    definen los item que estarán contenidos en 
+                    nuestros hijo para formar un subgrid. y 
+                    luego con nuestro selector de este componen-
+                    te html aplicamos un display:subgrid 
+                    (aun no disponible)
+
+                *- se define los items
+             -->
+            
+             <div class="subitem forma-1">sub  #1</div>
+             <div class="subitem forma-1">sub  #2</div>
+             <div class="subitem forma-1">sub  #3</div>
+             <div class="subitem forma-1">sub  #4</div>
+             <div class="subitem forma-1">sub  #5</div>
+             <div class="subitem forma-1">sub  #6</div>
+             <div class="subitem forma-1">sub  #7</div>
+             <div class="subitem forma-1">sub  #8</div>
+
+        </div>
+
+        <div class="item">
+            <!--contenido #12
+                *- 2#  la segunda forma para hacer un sub-grid se 
+                    definen los item que estarán contenidos en 
+                    nuestros hijo para formar un subgrid.  y luego
+                    con  el selector de clase de  este componente 
+                    html aplicamos las propiedad de display:grid 
+                    para que los elementos se comporten como un 
+                    grid. luego  incluimos las proiedades:
+                    grid-template-columns, grid-template-row
+
+                *- se define los items
+             -->
+            
+            <div class="subitem forma-2">sub 1</div>
+            <div class="subitem forma-2">sub 2</div>
+            <div class="subitem forma-2">sub 3</div>
+            <div class="subitem forma-2">sub 5</div>
+            <div class="subitem forma-2">sub 6</div>
+            <div class="subitem forma-2">sub 7</div>
+            <div class="subitem forma-2">sub 8</div>   
+        
+        </div>
+        
+    </section>
+
+</body>
+
+</html>
