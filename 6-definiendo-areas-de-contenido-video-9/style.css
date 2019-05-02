@@ -1,0 +1,185 @@
+
+/*
+    gris oscuro=#1df252c;
+    gris oscuro-claro=#626262;
+    gris claro=#fafafa;
+    background gris=#1b2127;
+    celeste=#026fff;
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    height: 100vh; /*100vh asume el alto de la pantalla*/
+    display: grid; /*Display necesario para usar el grid*/ 
+    background-color: #1b2127; /*Backgroud para identificar el contanier*/
+    /*row-gap: 50px; */  /*establece el espacio entre filas. */
+    /*column-gap: 50px; */ /*establece el espacio entre columnas. */
+    gap: 10px 10px; /*establece  los espacio entre las filas y columnas. */
+    
+    /*Definiendo cantidad/distribución filas/columnas*/
+    grid-template: 100px 1fr 150px  /200px 1fr;
+    
+    /*Definiendo cantidad/dimensión columnas*/
+    /* grid-template-columns: auto auto auto auto; */
+    
+    /*Definiendo cantidad/dimensión filas*/
+    /* grid-template-rows: 100px 100px 100px; */    
+    
+    /*especifica nombre de las áreas*/
+    grid-template-areas:    "header header"
+                            "left content"
+                            "footer footer" 
+
+}
+
+.item {
+    padding: 5px;
+    margin: 5px; 
+    border: 1px  solid #1b2127 ;
+    color: white;
+    background-color:#026fff;
+    
+    
+}
+
+.header{
+    grid-area: header; /*Asigna posición en el grid*/
+    background-color: coral;
+    border-radius: 10px; /**/
+}
+.left{
+    grid-area: left; /*Asigna posición en el grid*/
+    border-radius: 10px;
+    background-color: crimson;
+}
+.content{
+    grid-area: content; /*Asigna posición en el grid*/
+    border-radius: 10px;
+}
+.footer{
+    grid-area: footer; /*Asigna posición en el grid*/
+    border-radius: 10px;
+    background-color:darksalmon; 
+}
+/*NOTAS Vídeo 9 Definiendo áreas 
+                de contenido
+
+    *- Un sitio web está compuesto
+        por filas columnas sí uti-
+        lizamos las especificaciones 
+        grid en nuestras reglas css 
+        en tal sentido el footer y el header 
+        ocupan tantas columnas tengamos 
+        en nuestra sección de contenido.
+
+        *-vh o vw: Estas medidas tie-
+        nen múltiples usos, una de ella
+        es si queremos que un contenido
+        ocupe ocupe todo el ancho y
+        alto de nuestro pantalla o 
+        sirve sí queremos que nuestro 
+        texto varíe de acuerdo a las
+        medidas del dispositivo. 
+        *-Las medidas vh y vw son medidas 
+        relativas  de acuerdo al viewport. 
+        es decir: 
+        a) 1vh = 1% de la altura del viewport.
+        b) 100vh = altura del viewport.
+        c) 1vw = 1% del ancho del viewport.
+        d) 100vw = ancho del viewport.
+
+        *-grid-template-areas: "nombre-area-1""nombre-area-2" 
+                            "nombre-area-n" 
+        La propiedad CSS grid-template-areas 
+        especifica nombres para cada una de las 
+        grid areas.
+
+
+
+
+*/    
+/* NOTAS Video  8 Repetidores, 
+                unidades de medida y 
+                funciones
+
+    *-repeat(veces-a-repetir,valor-de-media): 
+        Función de css que permite  repetir 
+        una acción una cantidad de veces. 
+        El primer valor es la veces  que 
+        se repetirá y el segundo parámetro 
+        es el valor medida que necesitamos 
+        que se repita
+    *-minmax(valor-mínimo, valor-máximo):
+        Función que  permite recibir dos
+            parámetros el primero es el valor 
+            mínimo que se puede tomar y el se-
+            gundo hace referencias al valor má-
+            ximo que puede tomar
+    *-1fr:  
+        Es la unidad que nos permite distri-
+        buir el contenido grid de una manera 
+        más homogénea posible.1fr es equivalente 
+        a un 33.333%
+
+*/
+
+/* NOTAS video 6
+        grid identados
+
+       Se puede escoger un item  o elemento hijo del
+   padre que tiene display:grid y hacer sub-grid 
+   en ese elementos. Para ello Se puede usar como opción
+   la propiedad nth-of-type(n) dónde n es el
+   número del elemento que deseamos seleccionar.
+   y allí aplicamos las propiedades necesarias.
+   la otra forma es  haciendo un selector de clase
+   para ese componente html.
+
+
+   en ambos caso las dos formas son la siguiente:
+   de elemento que deseamos seleccionar una de la 
+   siguiente formas es :
+  
+   *- 1#. la forma  es aplicar un tipo de
+       display:subgrid (aún no disponible),
+       esto lo que hará es heredar las pro-
+       piedades del padre.
+
+   *- #2. Otras de las formas es aplicando un
+       display:grid  y  luego  utilizamos las
+       propiedades  necesarias para definir filas
+       y columnas  como lo son: 
+       grid-template-columns,
+       grid-template-rows, 
+       grid-template, 
+       entre otros
+
+    
+   *- #3. tipos de display:
+           #3.1 display:inline-grid, ordena en filas.
+           #3.2 display:sobregrip, hereda las propie-
+                dades del padre. Aún no disponible.
+
+*/
+
+/* NOTAS video 4 y5
+
+    *- Las propiedades del display grid sólo  
+    afecta a los hijos  hijos directo del 
+    Grid.
+
+    *- Las unidades (%,px,auto,rem) se pueden 
+    mezclar en los parámetros de las pro-
+    piedades grid-template-columns, 
+    grid-template-rows.
+
+    *- Existen dos tipos de  de valores grid: 
+    a) grid explícito, b) grid implícito.
+
+    *- Otra forma de  declarar filas y columnas 
+    es usando la propiedad  
+    grid-template: filas/Columnas.
+*/
