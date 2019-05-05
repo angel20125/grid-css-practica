@@ -1,0 +1,332 @@
+
+/*
+    gris oscuro=#1df252c;
+    gris oscuro-claro=#626262;
+    gris claro=#fafafa;
+    background gris=#1b2127;
+    celeste=#026fff;
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    /*100vh asume el alto de la pantalla*/
+    height: 100vh; 
+    /*Display necesario para usar el grid*/
+    display: grid;
+
+    padding: 30px;
+    /*Backgroud para identificar el contanier*/
+    background-color: #1b2127; 
+    
+    /* establece el espacio entre filas. */
+    /*row-gap: 50px; */  
+    
+    /*establece el espacio entre columnas.*/
+    /*column-gap: 50px; */ 
+    
+    /*establece los espacio entre las filas y columnas. */
+    gap: 10px 10px; 
+    
+    /*Definiendo cantidad/distribución filas/columnas*/
+    /*grid-template: 100px 1fr 150px  /200px 1fr; */ 
+    
+    /*Definiendo cantidad/dimensión columnas*/
+    grid-template-columns: repeat(7,1fr);
+    
+    /*Definiendo cantidad/dimensión filas */
+    grid-template-rows: repeat(2,200px);    
+    
+    /*especifica nombre de las áreas*/
+    /*grid-template-areas:  "header header"
+                            "left content"
+                            "footer footer"  
+    */
+    grid-auto-flow: row;
+    grid-auto-columns: 500px;
+    grid-auto-rows: 300px;
+}
+
+
+.item {
+    padding: 10px;
+   
+    border: 1px  solid #1b2127 ;
+    color: white;
+    background-color:#026fff;    
+}
+
+.item:nth-of-type(1){
+    grid-row: 1/span 2;
+    grid-column: 1/span 3; /* toma como valor 
+                        referencia los grid line
+                        para saber dónde inici
+                        y termina el  grid-item
+    */
+
+    background-color: coral;
+}
+
+.item:nth-of-type(2){
+    grid-row: 1/span 2;
+    grid-column: 4/span 2;  /* -1
+                        el -1 adapta elcomponente de forma 
+                        dinámica abarcando toda el ancho del
+                        grid
+    */
+    background-color: coral;
+
+}
+.item:nth-of-type(3){
+    grid-row: 1/ span 1;
+    grid-column: 6/span 2;
+}
+
+
+/*NOTAS Vídeo 13 Manejando el grid implícito
+
+    Los  valores implícitos (valor-propiedad)  
+    que están presentes en un grid, son aquellos 
+    valores que debe asumir  el navegador cuando  
+    no le decimos explícitamente  que debe  hacer.
+    Esto se hace para evitar errores cuando se 
+    muestra un contenido. Estos valores implícitos
+    (valor-propiedad) van en en  se pueden manipular
+    a través de sus propiedades que son las siguientes:
+
+  *-La grid-auto-flow
+
+        Propiedad CSS controla cómo funciona 
+        l algoritmo de colocación automática 
+        o el flujo de posición que tomarán los 
+        grid-item. Esto lo hace especificando 
+        exactamente cómo los elementos colocados 
+        automáticamente fluyen hacia la cuadrícula. 
+        Esta  propiedad lo usa el padre.
+
+        Ejemplo:
+            grid-auto-flow: row;
+            grid-auto-flow: column;
+
+ *-grid-auto-columns:
+        Propiedad CSS  que controla que dimensiones
+        (1fr, 100px… entre otros) tendrán las 
+        columnas  cuando no se le diga explícitamente 
+        que valor deben asumir. Esta  propiedad lo usa el padre. 
+
+        Ejemplo:
+            grid-auto-columns: 100px 100px
+
+        Sí no utilizamos la propiedad 
+        gri-template-columns o grid-template 
+        para definir las dimensiones  de las columnas  
+        y solamente usamos el grid-auto-columns 
+        entonces está propiedad  aplicará el  
+        valor a cada columna  en  patrón.
+
+
+grid-auto-row:
+        Propiedad CSS  que controla que 
+        dimensiones(1fr, 100px… entre otros) 
+        tendrán las columnas  cuando no se 
+        le diga explícitamente que valor 
+        deben asumir. Esta  propiedad lo 
+        usa el padre.
+
+        Ejemplo:
+
+            grid-auto-row: 100px 100px
+
+        Sí no utilizamos la propiedad gri-template-row 
+        o grid-template para definir las dimensiones 
+         de las filas  y solamente usamos 
+         el grid-auto-row entonces está propiedad  
+         aplicará el  valor 
+         (dimensiones: 1fr,100px entre otros ) 
+         a cada fila  en  patrón.
+
+    la propiedad grid-auto-flow,  trabaja  respectivamente 
+    con  grid-auto-columns o  grid-auto-rows. Depende del 
+    flujo que asuma grid-auto-flow que puede ser column o rows.
+
+    Es decir:
+    sí  la propiedad     grid-auto-flow tiene  column  y 
+    sobrán elementos entonces aplica la propiedad grid-auto-column.
+
+    y
+
+    sí  la propiedad     grid-auto-flow tiene  row  y sobrán 
+    elementos entonces aplica la propiedad grid-auto-rows.
+
+
+*/
+
+/*NOTAS Vídeo 10 Definiendo el tamaño 
+de las columnas dentro de un grid
+
+
+    *- grid-column-start:
+    Propiedad CSS especifica 
+    la posición inicial (grid-line) 
+    de un elemento hijo dentro  del 
+    grid. Es decir esta 
+    propiedad no toma como referencia 
+    los espacios definido (grid-cell) 
+    para saber dónde empezar.
+    Ejemplo:
+    grid-column-start: 1
+
+    -* grid-column-end:
+    Propiedad CSS especifica la 
+    posición final (grid-line) 
+    de un elemento hijo dentro 
+    del  grid.Es decir 
+    esta propiedad no toma como 
+    referencia los espacios definido 
+    (grid-cell) para saber dónde 
+    empezar.
+        Ejemplo:
+            grid-column-end: 4
+
+    -*span: 
+    Valor-propiedad que indica cuánto
+    espacio va tomar nuestro columna. 
+    Es decir esta propiedad no cuenta 
+    los grid-line. Esta propiedad cuenta 
+    los espacios es decir los grid-cell.
+        Ejemplo:
+            grid-column: 1/ span 2
+    
+    *-grid-column: grid-line-incio / numero-grid-line-final 
+
+    Es igual a  usar grid-column-start 
+    y grid-column-end. Este elemento 
+    indica la posición inicial (grid-line) 
+    y la posición final (grid-line)  que 
+    ocupará el elemento hijo(grid-cell).
+    Ejemplo:
+    grid-column:1/3
+
+*/
+
+/*NOTAS Vídeo 9 Definiendo áreas 
+                de contenido
+
+    *- Un sitio web está compuesto
+        por filas columnas sí uti-
+        lizamos las especificaciones 
+        grid en nuestras reglas css 
+        en tal sentido el footer y el header 
+        ocupan tantas columnas tengamos 
+        en nuestra sección de contenido.
+
+        *-vh o vw: Estas medidas tie-
+        nen múltiples usos, una de ella
+        es si queremos que un contenido
+        ocupe ocupe todo el ancho y
+        alto de nuestro pantalla o 
+        sirve sí queremos que nuestro 
+        texto varíe de acuerdo a las
+        medidas del dispositivo. 
+        *-Las medidas vh y vw son medidas 
+        relativas  de acuerdo al viewport. 
+        es decir: 
+        a) 1vh = 1% de la altura del viewport.
+        b) 100vh = altura del viewport.
+        c) 1vw = 1% del ancho del viewport.
+        d) 100vw = ancho del viewport.
+
+        *-grid-template-areas: "nombre-area-1""nombre-area-2" 
+                            "nombre-area-n" 
+        La propiedad CSS grid-template-areas 
+        especifica nombres para cada una de las 
+        grid areas.
+
+
+
+
+*/    
+
+/* NOTAS Video  8 Repetidores, 
+                unidades de medida y 
+                funciones
+
+    *-repeat(veces-a-repetir,valor-de-media): 
+        Función de css que permite  repetir 
+        una acción una cantidad de veces. 
+        El primer valor es la veces  que 
+        se repetirá y el segundo parámetro 
+        es el valor medida que necesitamos 
+        que se repita
+    *-minmax(valor-mínimo, valor-máximo):
+        Función que  permite recibir dos
+            parámetros el primero es el valor 
+            mínimo que se puede tomar y el se-
+            gundo hace referencias al valor má-
+            ximo que puede tomar
+    *-1fr:  
+        Es la unidad que nos permite distri-
+        buir el contenido grid de una manera 
+        más homogénea posible.1fr es equivalente 
+        a un 33.333%
+
+*/
+
+/* NOTAS video 6 grid identados
+
+        Se puede escoger un item  o elemento hijo del
+    padre que tiene display:grid y hacer sub-grid 
+    en ese elementos. Para ello Se puede usar como opción
+    la propiedad nth-of-type(n) dónde n es el
+    número del elemento que deseamos seleccionar.
+    y allí aplicamos las propiedades necesarias.
+    la otra forma es  haciendo un selector de clase
+    para ese componente html.
+
+
+   en ambos caso las dos formas son la siguiente:
+   de elemento que deseamos seleccionar una de la 
+   siguiente formas es :
+  
+   *- 1#. la forma  es aplicar un tipo de
+       display:subgrid (aún no disponible),
+       esto lo que hará es heredar las pro-
+       piedades del padre.
+
+   *- #2. Otras de las formas es aplicando un
+       display:grid  y  luego  utilizamos las
+       propiedades  necesarias para definir filas
+       y columnas  como lo son: 
+       grid-template-columns,
+       grid-template-rows, 
+       grid-template, 
+       entre otros
+
+    
+   *- #3. tipos de display:
+           #3.1 display:inline-grid, ordena en filas.
+           #3.2 display:sobregrip, hereda las propie-
+                dades del padre. Aún no disponible.
+
+*/
+
+/* NOTAS video 4 y5
+
+    *- Las propiedades del display grid sólo  
+    afecta a los hijos  hijos directo del 
+    Grid.
+
+    *- Las unidades (%,px,auto,rem) se pueden 
+    mezclar en los parámetros de las pro-
+    piedades grid-template-columns, 
+    grid-template-rows.
+
+    *- Existen dos tipos de  de valores grid: 
+    a) grid explícito, b) grid implícito.
+
+    *- Otra forma de  declarar filas y columnas 
+    es usando la propiedad  
+    grid-template: filas/Columnas.
+*/
